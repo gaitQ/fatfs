@@ -11,8 +11,11 @@ zephyr_library_sources(
     )
 zephyr_library_sources_ifdef(CONFIG_FS_FATFS_LFN
     option/ffunicode.c
-    option/ffsystem.c
 )
+if("${CONFIG_FS_FATFS_LFN}" OR "${CONFIG_FS_FATFS_REENTRANT}")
+    zephyr_library_sources(option/ffsystem.c)
+endif()
+
 zephyr_library_link_libraries(ELMFAT)
 target_link_libraries(ELMFAT INTERFACE zephyr_interface)
 endif()
