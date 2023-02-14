@@ -5,7 +5,7 @@
 
 
 #include "ff.h"
-#include <zephyr.h>
+#include <zephyr/kernel.h>
 
 
 #if FF_USE_LFN == 3	/* Dynamic memory allocation */
